@@ -47,16 +47,26 @@ class Link:
 
 def digits(n):
     """Return the digits of n as a linked list.
-
     >>> digits(0) is Link.empty
     True
     >>> digits(543)
     Link(5, Link(4, Link(3)))
     """
+
+    assert isinstance(n, int), "n must be integer"
+
+    assert(n > 0), "n must be positive integer"
+
     s = Link.empty
+
     while n > 0:
+
         n, last = n // 10, n % 10
+
         #Your Code Here#
+
+        s = Link(last, s)
+
     return s
 
 
@@ -125,7 +135,7 @@ class VendingMachine:
     >>> v.vend()
     'You must deposit $3 more.'
     >>> v.deposit(5)
-    'Current balance: $12'
+    'Current balance: $12' 
     >>> v.vend()
     'Here is your candy and $2 change.'
     >>> v.deposit(10)
@@ -146,6 +156,36 @@ class VendingMachine:
     'Here is your soda.'
     """
     #Your Code Here#
+    depo = 0
+    stock = 0
+
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+
+    def vend(self):
+        if self.stock == 0:
+            return "Machine is out of stock."
+        elif self.depo < self.price:
+            return 'You must deposit ${0} more.'.format(self.price - self.depo)
+        else:
+            self.stock -= 1
+            change = self.depo - self.price
+            self.depo = 0
+            if change == 0:
+                return 'Here is your {0}.'.format(self.name)
+            return 'Here is your {0} and ${1} change.'.format(self.name, change)
+
+    def deposit(self, amount):
+        if self.stock == 0:
+            return 'Machine is out of stock. Here is your ${0}.'.format(amount)
+        else:
+            self.depo = self.depo + amount
+            return 'Current balance: ${0}'.format(self.depo)
+
+    def restock(self, number):
+        self.stock += number
+        return 'Current {0} stock: {1}'.format(self.name, self.stock)
 
 
 ##############################################################################

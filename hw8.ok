@@ -1,0 +1,23 @@
+{
+    "name": "Homework 8",
+    "endpoint": "ucsd/dsc20/sp18/hw8",
+    "src": [
+        "hw8.py"
+    ],
+    "tests": {
+        "hw8.py:digits": "doctest",
+        "hw8.py:Fib": "doctest",
+        "hw8.py:VendingMachine": "doctest",
+        "hw8.py:clip_list": "doctest",
+        "hw8.py:cursed_carousel": "doctest"
+    },
+    "default_tests": [
+    ],
+    "protocols": [
+        "restore",
+        "file_contents",
+        "grading",
+        "analytics",
+        "backup"
+    ]
+}

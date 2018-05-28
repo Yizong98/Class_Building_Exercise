@@ -349,13 +349,14 @@ class Queue:
         return elem
 
     def enqueue(self, elem):
+        double = 2
         self.data[self.rear] = elem
         self.num_elems += 1
         self.rear = self.rear + 1
         if (self.rear == len(self.data)):
             self.rear = 0
         if self.is_full():
-            self.capacity *= 2
+            self.capacity *= double
             new_data = np.array([None] * self.capacity, dtype=object)
             new_data[0:(len(self.data))] = self.data
             self.data = new_data

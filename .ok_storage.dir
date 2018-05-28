@@ -1,0 +1,5 @@
+'digits-correct', (0, 70)
+'Fib-correct', (512, 70)
+'VendingMachine-correct', (1024, 70)
+'clip_list-correct', (1536, 70)
+'cursed_carousel-correct', (2048, 70)
